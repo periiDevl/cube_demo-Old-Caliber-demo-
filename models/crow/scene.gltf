@@ -1,0 +1,171 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.7.33",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                1
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "scene",
+            "scale" : [
+                0.4985452890396118,
+                0.05939848721027374,
+                0.6395867466926575
+            ],
+            "translation" : [
+                0,
+                15.7153959274292,
+                0
+            ]
+        },
+        {
+            "children" : [
+                0
+            ],
+            "name" : "deafult -temlate",
+            "scale" : [
+                2.3772428035736084,
+                2.3772428035736084,
+                2.3772428035736084
+            ],
+            "translation" : [
+                0,
+                -37.85975646972656,
+                0
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "name" : "pasted__lambert2.001",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 0
+                },
+                "metallicFactor" : 0
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "object.002",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2,
+                        "COLOR_0" : 3
+                    },
+                    "indices" : 4,
+                    "material" : 0
+                }
+            ]
+        }
+    ],
+    "textures" : [
+        {
+            "sampler" : 0,
+            "source" : 0
+        }
+    ],
+    "images" : [
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "diffuse",
+            "uri" : "diffuse.jpg"
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 340,
+            "max" : [
+                11.739740371704102,
+                123.20718383789062,
+                3.5846662521362305
+            ],
+            "min" : [
+                -15.389223098754883,
+                -41.01763916015625,
+                -18.75149917602539
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 340,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 340,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5123,
+            "count" : 340,
+            "normalized" : true,
+            "type" : "VEC4"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5123,
+            "count" : 528,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 4080,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 4080,
+            "byteOffset" : 4080
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 2720,
+            "byteOffset" : 8160
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 2720,
+            "byteOffset" : 10880
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 1056,
+            "byteOffset" : 13600
+        }
+    ],
+    "samplers" : [
+        {
+            "magFilter" : 9729,
+            "minFilter" : 9987
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 14656,
+            "uri" : "scene.bin"
+        }
+    ]
+}

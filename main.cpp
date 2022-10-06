@@ -682,6 +682,7 @@ int main()
 		ImGui::NewFrame();
 		if (timeDiff >= 1.0 / 30.0)
 		{
+
 			// Creates new title
 			std::string FPS = std::to_string((1.0 / timeDiff) * counter);
 			std::string ms = std::to_string((timeDiff / counter) * 1000);
@@ -790,10 +791,28 @@ int main()
 			}
 
 
-			SimpleCollisionX(11, -11, 10, -10, playerPos);
-			//right left || size X, sizeZ
-			SimpleCollisionZ(10, -10, 11, -11, playerPos);
-			//front - back || sizeX, sizeZ
+
+			//////////////////// collision //////////////////////
+			if (playerPos.x < 10 && playerPos.x > -10 && playerPos.z < 10 && playerPos.z > -10)
+			{
+
+				colidedX = true;
+			}
+			else
+			{
+				colidedX = false;
+			}
+			if (playerPos.x < 10 && playerPos.x > -10 && playerPos.z < 10 && playerPos.z > -10)
+			{
+				colidedZ = true;
+			}
+			else
+			{
+				colidedZ = false;
+			}
+
+			//////////////////// collision //////////////////////
+
 			if (colidedX)
 			{
 				playerPos.x = camPosX;
@@ -811,6 +830,9 @@ int main()
 
 				camPosZ = playerPos.z;
 			}
+
+
+
 		}
 
 		// Switch back to the default framebuffer

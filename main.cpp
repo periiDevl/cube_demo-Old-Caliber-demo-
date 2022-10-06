@@ -790,27 +790,31 @@ int main()
 				cameraPosYCol = camera.Position.y;
 			}
 
-
+			//SimpleCollisionX(-10, 10, 10, -10, playerPos);
+			//SimpleCollisionZ(-10, 10, 10, -10, playerPos);
 
 			//////////////////// collision //////////////////////
-			if (playerPos.x < 10 && playerPos.x > -10 && playerPos.z < 10 && playerPos.z > -10)
+			
+			if (playerPos.x < 20 && playerPos.x > -20 && playerPos.z < 10 && playerPos.z > -10)
 			{
-
+			
 				colidedX = true;
 			}
-			else
+			else if (playerPos.x < 20 || playerPos.x > -20)
 			{
 				colidedX = false;
 			}
-			if (playerPos.x < 10 && playerPos.x > -10 && playerPos.z < 10 && playerPos.z > -10)
+			if (playerPos.x < 20 && playerPos.x > -20 && playerPos.z < 10 && playerPos.z > -10)
 			{
 				colidedZ = true;
 			}
-			else
+			else if (playerPos.z < 10 || playerPos.z > -10)
 			{
 				colidedZ = false;
 			}
 
+
+			
 			//////////////////// collision //////////////////////
 
 			if (colidedX)
@@ -1199,9 +1203,9 @@ void SimpleCollisionX(float x1, float x2, float z1, float z2, glm::vec3 Position
 
 		colidedX = true;
 	}
-	else
+	else if (Position.z < x1 || Position.z > -x2)
 	{
-		colidedX = false;
+		colidedZ = false;
 	}
 
 
@@ -1213,10 +1217,11 @@ void SimpleCollisionZ(float x1, float x2, float z1, float z2, glm::vec3 Position
 	{
 		colidedZ = true;
 	}
-	else
+	else if (Position.x < z1 || Position.x > -z2)
 	{
 		colidedZ = false;
 	}
+
 }
 	
 

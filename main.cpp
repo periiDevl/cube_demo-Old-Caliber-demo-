@@ -45,10 +45,11 @@ int enableskybox = 0;
 //collision
 //__________
 bool colidedX = false;
+bool colidedZ = false;
+
 float camPosX;
 
 float camPosZ;
-bool colidedZ = false;
 //__________
 
 
@@ -267,9 +268,11 @@ int main()
 	
 	
 	// Load in models
-	Model calibericon("models/crowI/scene.gltf");
+	Model ground("models/cube/scene.gltf");
 
 	Model cube("models/cube/scene.gltf");
+
+	Model wall("models/wall/scene.gltf");
 
 	Model grid("models/grid/scene.gltf");
 
@@ -601,20 +604,20 @@ int main()
 		//player input
 		if (glfwGetKey(window, GLFW_KEY_W))
 		{
-			playerPos.z = playerPos.z + 1;
+			playerPos.z = playerPos.z + 0.3;
 		}
 		if (glfwGetKey(window, GLFW_KEY_S))
 		{
-			playerPos.z = playerPos.z - 1;
+			playerPos.z = playerPos.z - 0.3;
 		}
 
 		if (glfwGetKey(window, GLFW_KEY_A))
 		{
-			playerPos.x = playerPos.x + 1;
+			playerPos.x = playerPos.x + 0.3;
 		}
 		if (glfwGetKey(window, GLFW_KEY_D))
 		{
-			playerPos.x = playerPos.x - 1;
+			playerPos.x = playerPos.x - 0.3;
 		}
 
 		if (glfwGetKey(window, GLFW_KEY_ESCAPE))
@@ -756,7 +759,7 @@ int main()
 		// Draw scene for shadow map
 		if (run == true) {
 			if (renderShadows == 1) {
-				calibericon.Draw(shadowMapProgram, camera, glm::vec3(0, 0, 0.0f), glm::quat(0, 0, 0, 0), glm::vec3(20, 20, 20));
+				ground.Draw(shadowMapProgram, camera, glm::vec3(0, 0, 0.0f), glm::quat(0, 0, 0, 0), glm::vec3(100, 1, 100));
 				cube.Draw(shadowMapProgram, camera, playerPos, glm::quat(0, 0, 0, 0), glm::vec3(2 * 2, 2.7f * 2, 2 * 2));
 				
 				
@@ -795,25 +798,28 @@ int main()
 
 			//////////////////// collision //////////////////////
 			
-			if (playerPos.x < 20 && playerPos.x > -20 && playerPos.z < 10 && playerPos.z > -10)
+			if (playerPos.x < 29 && playerPos.x > -19.2 && playerPos.z < 27 && playerPos.z > -21
+				|| playerPos.x < 5 && playerPos.x > -5 && playerPos.z < 10 && playerPos.z > -10)
 			{
 			
 				colidedX = true;
 			}
-			else if (playerPos.x < 20 || playerPos.x > -20)
+			else
 			{
 				colidedX = false;
 			}
-			if (playerPos.x < 20 && playerPos.x > -20 && playerPos.z < 10 && playerPos.z > -10)
+			if (playerPos.x < 29 && playerPos.x > -19.2 && playerPos.z < 27 && playerPos.z > -21
+				|| playerPos.x < 5 && playerPos.x > -5 && playerPos.z < 10 && playerPos.z > -10)
 			{
 				colidedZ = true;
 			}
-			else if (playerPos.z < 10 || playerPos.z > -10)
+			else
 			{
 				colidedZ = false;
 			}
-
-
+			//--------------------------------------------
+			
+			
 			
 			//////////////////// collision //////////////////////
 
@@ -834,8 +840,6 @@ int main()
 
 				camPosZ = playerPos.z;
 			}
-
-
 
 		}
 
@@ -875,8 +879,11 @@ int main()
 		
 
 	
-		calibericon.Draw(shaderProgram, camera, glm::vec3(0, 0, 0.0f), glm::quat(0, 0, 0, 0), glm::vec3(20, 20, 20));
+		ground.Draw(shaderProgram, camera, glm::vec3(0, 0, 0.0f), glm::quat(0, 0, 0, 0), glm::vec3(100, 1, 100));
 		cube.Draw(shaderProgram, camera, playerPos, glm::quat(0, 0, 0, 0), glm::vec3(2 * 2, 2.7f * 2, 2 * 2));
+
+
+		wall.Draw(shaderProgram, camera, glm::vec3(5, 1, 3), glm::quat(0, 0, 0, 0), glm::vec3(20, 1, 20));
 		if (!run) {
 			grid.Draw(shaderProgram, camera, glm::vec3(0.0f, 0.0f, 0.0f), glm::quat(0, 0, 0, 0), glm::vec3(10.5f, 1, 10));
 		}
@@ -1181,6 +1188,13 @@ int main()
 
 	std::ofstream speed_output("save/speed.pve");
 	speed_output << normalSpeed;
+
+	std::ofstream x_output("positions/x.pve");
+	x_output << playerPos.x;
+	x_output << "-";
+	x_output << playerPos.y;
+	x_output << "-";
+	x_output << playerPos.z;
 
 	return 0;
 

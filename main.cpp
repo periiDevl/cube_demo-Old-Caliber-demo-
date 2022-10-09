@@ -601,26 +601,26 @@ int main()
 	float cameraPosYCol;
 	float floorLev = 0;
 	// Main while loop
-	glm::vec3 playerPos = glm::vec3(30, 0, 0);
+	glm::vec3 playerPos = glm::vec3(30, 0, 11.5);
 	while (!glfwWindowShouldClose(window) && !glfwGetKey(window, GLFW_KEY_HOME))
 	{
 		//player input
 		if (glfwGetKey(window, GLFW_KEY_W))
 		{
-			playerPos.z = playerPos.z + 0.3;
+			playerPos.z = playerPos.z + 0.5;
 		}
 		if (glfwGetKey(window, GLFW_KEY_S))
 		{
-			playerPos.z = playerPos.z - 0.3;
+			playerPos.z = playerPos.z - 0.5;
 		}
 
 		if (glfwGetKey(window, GLFW_KEY_A))
 		{
-			playerPos.x = playerPos.x + 0.3;
+			playerPos.x = playerPos.x + 0.5;
 		}
 		if (glfwGetKey(window, GLFW_KEY_D))
 		{
-			playerPos.x = playerPos.x - 0.3;
+			playerPos.x = playerPos.x - 0.5;
 		}
 
 		if (glfwGetKey(window, GLFW_KEY_ESCAPE))
@@ -804,7 +804,10 @@ int main()
 			
 			if (
 				playerPos.x < 63.5 && playerPos.x > 46 && playerPos.z < 93.3 && playerPos.z > -33.6
-				|| playerPos.x < 63.5 && playerPos.x > -34.2 && playerPos.z < 93.9 && playerPos.z > 25.8
+				|| playerPos.x < 63.5 && playerPos.x > -34.5 && playerPos.z < 93.9 && playerPos.z > 25.8
+				|| playerPos.x < -46.1999 && playerPos.x > -63.89 && playerPos.z < 93.9 && playerPos.z > -8.4
+				|| playerPos.x < 66.29 && playerPos.x > -66.67 && playerPos.z < 4 && playerPos.z > -49.3999
+				|| playerPos.x < 63.5999 && playerPos.x > -63.8999 && playerPos.z < 93.4002 && playerPos.z > 76
 				)
 			{
 			
@@ -816,7 +819,10 @@ int main()
 			}
 			if (
 				playerPos.x < 63.5 && playerPos.x > 46 && playerPos.z < 93.3 && playerPos.z > -33.6
-				|| playerPos.x < 63.5 && playerPos.x > -34.2 && playerPos.z < 93.9 && playerPos.z > 25.8
+				|| playerPos.x < 63.5 && playerPos.x > -34.5 && playerPos.z < 93.9 && playerPos.z > 25.8
+				|| playerPos.x < -46.1999 && playerPos.x > -63.89 && playerPos.z < 93.9 && playerPos.z > -8.4
+				|| playerPos.x < 66.29 && playerPos.x > -66.29 && playerPos.z < 4 && playerPos.z > -49.3999
+				|| playerPos.x < 63.5999 && playerPos.x > -63.8999 && playerPos.z < 93.4002 && playerPos.z > 76
 				)
 			{
 				colidedZ = true;

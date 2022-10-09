@@ -429,7 +429,7 @@ int main()
 	float farPlane = 200.0f;
 	glm::mat4 orthgonalProjection;
 	glm::mat4 orthgonalProjectionLow = glm::ortho(-40.0f, 40.0f, -40.0f, 40.0f, 1.0f, farPlane);
-	glm::mat4 orthgonalProjectionHigh = glm::ortho(-70.0f, 70.0f, -70.0f, 70.0f, 1.0f, farPlane);
+	glm::mat4 orthgonalProjectionHigh = glm::ortho(-100.0f, 100.0f, -100.0f, 100.0f, 1.0f, farPlane);
 	//you can change how far shadows go!!! from 10 to 70 and more
 	glm::mat4 perspectiveProjection = glm::perspective(glm::radians(90.0f), 1.0f, 0.1f, farPlane);
 	if (HighLightView == 0) {

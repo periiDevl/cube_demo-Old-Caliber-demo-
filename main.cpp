@@ -274,6 +274,9 @@ int main()
 
 	Model wall("models/wall/scene.gltf");
 
+	Model map1("models/mapone/scene.gltf");
+
+
 	Model grid("models/grid/scene.gltf");
 
 
@@ -759,7 +762,8 @@ int main()
 		// Draw scene for shadow map
 		if (run == true) {
 			if (renderShadows == 1) {
-				ground.Draw(shadowMapProgram, camera, glm::vec3(0, 0, 0.0f), glm::quat(0, 0, 0, 0), glm::vec3(100, 1, 100));
+				
+				map1.Draw(shadowMapProgram, camera, glm::vec3(0, 0, 30.0f), glm::quat(0, 0, 0, 0), glm::vec3(10, 10, 10));
 				cube.Draw(shadowMapProgram, camera, playerPos, glm::quat(0, 0, 0, 0), glm::vec3(2 * 2, 2.7f * 2, 2 * 2));
 				
 				
@@ -798,8 +802,10 @@ int main()
 
 			//////////////////// collision //////////////////////
 			
-			if (playerPos.x < 29 && playerPos.x > -19.2 && playerPos.z < 27 && playerPos.z > -21
-				|| playerPos.x < 5 && playerPos.x > -5 && playerPos.z < 10 && playerPos.z > -10)
+			if (
+				playerPos.x < 63.5 && playerPos.x > 46 && playerPos.z < 93.3 && playerPos.z > -33.6
+				|| playerPos.x < 63.5 && playerPos.x > -34.2 && playerPos.z < 93.9 && playerPos.z > 25.8
+				)
 			{
 			
 				colidedX = true;
@@ -808,8 +814,10 @@ int main()
 			{
 				colidedX = false;
 			}
-			if (playerPos.x < 29 && playerPos.x > -19.2 && playerPos.z < 27 && playerPos.z > -21
-				|| playerPos.x < 5 && playerPos.x > -5 && playerPos.z < 10 && playerPos.z > -10)
+			if (
+				playerPos.x < 63.5 && playerPos.x > 46 && playerPos.z < 93.3 && playerPos.z > -33.6
+				|| playerPos.x < 63.5 && playerPos.x > -34.2 && playerPos.z < 93.9 && playerPos.z > 25.8
+				)
 			{
 				colidedZ = true;
 			}
@@ -822,25 +830,26 @@ int main()
 			
 			
 			//////////////////// collision //////////////////////
+			if (run) {
+				if (colidedX)
+				{
+					playerPos.x = camPosX;
+				}
+				else {
 
-			if (colidedX)
-			{
-				playerPos.x = camPosX;
+					camPosX = playerPos.x;
+				}
+
+				if (colidedZ)
+				{
+					playerPos.z = camPosZ;
+				}
+				else {
+
+					camPosZ = playerPos.z;
+				}
 			}
-			else {
-
-				camPosX = playerPos.x;
-			}
-
-			if (colidedZ)
-			{
-				playerPos.z = camPosZ;
-			}
-			else {
-
-				camPosZ = playerPos.z;
-			}
-
+			
 		}
 
 		// Switch back to the default framebuffer
@@ -861,7 +870,7 @@ int main()
 
 		
 		// Updates and exports the camera matrix to the Vertex Shader
-		camera.updateMatrix(60.0f, 0.1f, farPlane);
+		camera.updateMatrix(60.0f, 0.1f, 200);
 		
 
 
@@ -879,11 +888,12 @@ int main()
 		
 
 	
-		ground.Draw(shaderProgram, camera, glm::vec3(0, 0, 0.0f), glm::quat(0, 0, 0, 0), glm::vec3(100, 1, 100));
+		
+		map1.Draw(shaderProgram, camera, glm::vec3(0, 0, 30.0f), glm::quat(0, 0, 0, 0), glm::vec3(10, 10, 10));
 		cube.Draw(shaderProgram, camera, playerPos, glm::quat(0, 0, 0, 0), glm::vec3(2 * 2, 2.7f * 2, 2 * 2));
 
 
-		wall.Draw(shaderProgram, camera, glm::vec3(5, 1, 3), glm::quat(0, 0, 0, 0), glm::vec3(20, 1, 20));
+		
 		if (!run) {
 			grid.Draw(shaderProgram, camera, glm::vec3(0.0f, 0.0f, 0.0f), glm::quat(0, 0, 0, 0), glm::vec3(10.5f, 1, 10));
 		}
@@ -1191,9 +1201,9 @@ int main()
 
 	std::ofstream x_output("positions/x.pve");
 	x_output << playerPos.x;
-	x_output << "-";
+	x_output << "/";
 	x_output << playerPos.y;
-	x_output << "-";
+	x_output << "/";
 	x_output << playerPos.z;
 
 	return 0;

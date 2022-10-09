@@ -136,7 +136,7 @@ vec4 direcLight()
 		float bias = max(0.025f * (1.0f - dot(normal, lightDirection)), 0.0005f);
 
 		// Smoothens out the shadows
-		int sampleRadius = 5;
+		int sampleRadius = 4;
 		vec2 pixelSize = 1.0 / textureSize(shadowMap, 0);
 		for(int y = -sampleRadius; y <= sampleRadius; y++)
 		{
@@ -218,7 +218,7 @@ vec4 spotLight()
 	return (texture(diffuse0, texCoord) * (diffuse * (1.0f - shadow) * inten + ambient) + texture(specular0, texCoord).r * specular * (1.0f - shadow) * inten) * lightColor;
 }
 
-float near = 0.00005f;
+float near = 0.00001f;
 float far = 100.0f;
 
 float linearizeDepth(float depth)

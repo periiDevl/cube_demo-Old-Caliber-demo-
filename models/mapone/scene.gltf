@@ -8,7 +8,8 @@
         {
             "name" : "Scene",
             "nodes" : [
-                0
+                0,
+                1
             ]
         }
     ],
@@ -16,6 +17,20 @@
         {
             "mesh" : 0,
             "name" : "Cube"
+        },
+        {
+            "mesh" : 1,
+            "name" : "Cube.001",
+            "scale" : [
+                12.8130521774292,
+                0.3977978229522705,
+                0.13734817504882812
+            ],
+            "translation" : [
+                0,
+                -0.5217021107673645,
+                0
+            ]
         }
     ],
     "materials" : [
@@ -45,6 +60,19 @@
                     "material" : 0
                 }
             ]
+        },
+        {
+            "name" : "Cube.004",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 4,
+                        "NORMAL" : 5,
+                        "TEXCOORD_0" : 6
+                    },
+                    "indices" : 7
+                }
+            ]
         }
     ],
     "textures" : [
@@ -55,67 +83,121 @@
     ],
     "images" : [
         {
-            "mimeType" : "image/jpeg",
+            "mimeType" : "image/png",
             "name" : "diffuse",
-            "uri" : "diffuse.jpg"
+            "uri" : "diffuse.png"
         }
     ],
     "accessors" : [
         {
             "bufferView" : 0,
             "componentType" : 5126,
-            "count" : 154,
+            "count" : 16601,
             "max" : [
-                6.0074920654296875,
-                0.25967836380004883,
-                5.996199607849121
+                6.138686180114746,
+                3.2359139919281006,
+                6.347719192504883
             ],
             "min" : [
-                -6.00783634185791,
-                -0.03562214970588684,
-                -6.003800868988037
+                -6.5060038566589355,
+                -0.6237072944641113,
+                -6.5632100105285645
             ],
             "type" : "VEC3"
         },
         {
             "bufferView" : 1,
             "componentType" : 5126,
-            "count" : 154,
+            "count" : 16601,
             "type" : "VEC3"
         },
         {
             "bufferView" : 2,
             "componentType" : 5126,
-            "count" : 154,
+            "count" : 16601,
             "type" : "VEC2"
         },
         {
             "bufferView" : 3,
             "componentType" : 5123,
-            "count" : 252,
+            "count" : 41226,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5126,
+            "count" : 24,
+            "max" : [
+                1,
+                1,
+                1
+            ],
+            "min" : [
+                -1,
+                -1,
+                -1
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 5,
+            "componentType" : 5126,
+            "count" : 24,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 6,
+            "componentType" : 5126,
+            "count" : 24,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 7,
+            "componentType" : 5123,
+            "count" : 36,
             "type" : "SCALAR"
         }
     ],
     "bufferViews" : [
         {
             "buffer" : 0,
-            "byteLength" : 1848,
+            "byteLength" : 199212,
             "byteOffset" : 0
         },
         {
             "buffer" : 0,
-            "byteLength" : 1848,
-            "byteOffset" : 1848
+            "byteLength" : 199212,
+            "byteOffset" : 199212
         },
         {
             "buffer" : 0,
-            "byteLength" : 1232,
-            "byteOffset" : 3696
+            "byteLength" : 132808,
+            "byteOffset" : 398424
         },
         {
             "buffer" : 0,
-            "byteLength" : 504,
-            "byteOffset" : 4928
+            "byteLength" : 82452,
+            "byteOffset" : 531232
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 288,
+            "byteOffset" : 613684
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 288,
+            "byteOffset" : 613972
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 192,
+            "byteOffset" : 614260
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 72,
+            "byteOffset" : 614452
         }
     ],
     "samplers" : [
@@ -126,7 +208,7 @@
     ],
     "buffers" : [
         {
-            "byteLength" : 5432,
+            "byteLength" : 614524,
             "uri" : "scene.bin"
         }
     ]

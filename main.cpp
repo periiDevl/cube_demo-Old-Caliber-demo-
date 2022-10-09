@@ -402,7 +402,7 @@ int main()
 	}
 	else
 	{
-		shadowMapWidth = 800, shadowMapHeight = 800;
+		shadowMapWidth = 1500, shadowMapHeight = 1500;
 
 	}
 	
@@ -742,8 +742,8 @@ int main()
 				}
 			}
 			if (run) {
-				camera.Position = glm::vec3(0, 40, -30);
-				camera.Orientation = glm::vec3(0, -180, 180);
+				camera.Position = glm::vec3(-2.55739, 51.1955, -31.6605);
+				camera.Orientation = glm::vec3(-0.00526521, -0.689758, 0.724017);
 			}
 		}
 
@@ -1211,6 +1211,20 @@ int main()
 	x_output << playerPos.y;
 	x_output << "/";
 	x_output << playerPos.z;
+
+	std::ofstream camra_output("positions/cameraORI.pve");
+	camra_output << camera.Orientation.x;
+	camra_output << "/";
+	camra_output << camera.Orientation.y;
+	camra_output << "/";
+	camra_output << camera.Orientation.z;
+
+	std::ofstream camraP_output("positions/cameraPOS.pve");
+	camraP_output << camera.Position.x;
+	camraP_output << "/";
+	camraP_output << camera.Position.y;
+	camraP_output << "/";
+	camraP_output << camera.Position.z;
 
 	return 0;
 
